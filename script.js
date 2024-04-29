@@ -1,26 +1,32 @@
 function getComputerChoice(){
-    let computerChoice = Math.random()* 3;
-    if (computerChoice <= 1) {
-        console.log("rock")
-    } else if (computerChoice <= 2) {
-        console.log("paper")
-    } else (
-        console.log("scissors")
-    )
-    return computerChoice;
+    let computerChoice = Math.floor(Math.random()*3);
+    if (computerChoice === 0) {
+       return "rock"
+    } else if (computerChoice === 1) {
+        return "paper"
+    } else {
+        return "scissors"
+    }
 }
-
-console.log(getComputerChoice())
 
 
 function getHumanChoice() {
     let humanChoice = prompt("Choice One", "");
     if (humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors') {
-        console.log("Right!")
     } else {
         console.log("Please write only 'rock', 'paper', 'scissors'")
     }
     return humanChoice
 }
 
-console.log(getHumanChoice())
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = getHumanChoice;
+    computerChoice = getComputerChoice;
+    return humanChoice() + " " + computerChoice()
+}
+
+console.log(playRound())
