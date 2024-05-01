@@ -20,9 +20,7 @@ function getHumanChoice() {
 }
 
 let humanScore = 0
-  , computerScore = 0
-  , humanWon = 0
-  , computerWon = 0;
+  , computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 
@@ -34,29 +32,48 @@ function playRound(humanChoice, computerChoice) {
         console.log("It's a draw! Scissors meet Scissors.")
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
         console.log("You win! Rock crushes Scissors.")
-        humanWon = humanScore + 1;
+        humanScore++
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
         console.log("You lose! Scissors are crushed by Rock.")
-        computerWon = computerScore + 1;
+        computerScore++
     } else if (humanChoice == "paper" && computerChoice == "rock") {
         console.log("You win! Paper covers Rock.")
-        humanWon = humanScore + 1;
+        humanScore++
     } else if (humanChoice == "rock" && computerChoice == "paper") {
         console.log("You lose! Rock is covered by Paper.")
-        computerWon = computerScore + 1;
+        computerScore++
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
         console.log("You win! Paper is cut by Scissors.")
-        humanWon = humanScore + 1;
+        humanScore++
     } else if (humanChoice == "paper" && computerChoice == "scissors") {
         console.log("You lose! Scissors cut Paper.")
-        computerWon = computerScore + 1;
+        computerScore++
     }
-    console.log("You won: " + humanWon + " Computer Won: " + computerWon);
+
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
 
-console.log("👨‍💼 Your Choice: " + humanSelection + "\n" + "🤖 Computer Choice: " + computerSelection)
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        console.log(`\nRound ${i + 1}:`);
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log("👨‍💼 Your Choice: " + humanSelection + "\n" + "🤖 Computer Choice: " + computerSelection);
+        console.log("You won: " + humanScore + " Computer Won: " + computerScore);
+
+    }
+
+        if(humanScore > computerScore){
+            console.log("Congratulations! You dominated the game by winning the majority of the rounds.")
+        } else {
+            console.log("Tough luck! You lost the majority of the games this time.")
+        }
+    }
+
+
+    playGame()
