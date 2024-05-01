@@ -11,10 +11,10 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    let humanChoice = prompt("Choice One", "").toLowerCase();
+    let humanChoice = prompt("Choose one: 'rock', 'paper', or 'scissors'", "").toLowerCase();
     if (humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors') {
     } else {
-        console.log("Please write only 'rock', 'paper', 'scissors'")
+        console.log("Invalid choice. Please write only 'rock', 'paper', or 'scissors'. This round will not count towards the final score. Continue playing and make sure to choose one of the valid options.")
     }
     return humanChoice
 }
